@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CodespacesTryRails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pompeczka - Aplikacja do logowania treningów</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <%= hotwire_livereload_tags if Rails.env.development? %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to 'Strona główna', root_path %></li>
+          <li><%= link_to 'Użytkownicy', users_path %></li>
+          <li><%= link_to 'Treningi', trainings_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+     <p class="notice"><%= notice %></p> 
+     <p class="alert"><%= alert %></p> 
+      <%= yield %>
+    </main>
+    <footer>
+      &copy; <%= Time.now.year %> Pompeczka - Aplikacja do logowania treningów
+    </footer>
   </body>
 </html>

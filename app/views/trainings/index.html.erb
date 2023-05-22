@@ -1,0 +1,6 @@
+<h2>Ostatnie treningi:</h2>
+<ul>
+  <% @trainings.each do |training| %>
+    <li><%= training.user.imie %> <%= training.user.nazwisko %> - <%= training.data %> - <%= training.liczba_pompek %> pompek</li>
+  <% end %>
+</ul>
