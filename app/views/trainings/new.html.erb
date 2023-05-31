@@ -1,0 +1,32 @@
+<h1>Dodaj trening</h1>
+
+<%= form_with(model: @training, url: trainings_path, local: true) do |form| %>
+  <% if @training.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@training.errors.count, "error") %> powstrzymało ten trening przed zapisem:</h2>
+
+      <ul>
+      <% @training.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :liczba_pompek %>
+    <%= form.number_field :liczba_pompek %>
+  </div>
+
+  <div class="field">
+  <%= form.label :data %>
+  <%= form.date_field :data %>
+  <!--<% if @training.errors.has_key?(:data) %>--
+    <p class="error"><%= @training.errors[:data].first %></p>
+  <% end %>-->
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
