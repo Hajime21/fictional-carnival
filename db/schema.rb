@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_16_184547) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_31_015041) do
   create_table "trainings", force: :cascade do |t|
     t.date "data"
     t.integer "liczba_pompek"
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_184547) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

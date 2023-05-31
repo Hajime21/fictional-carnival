@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   # strona główna
   root 'public#home'
   get 'trainings', to: 'trainings#index'
+  get 'trainingsnew', to: 'trainings#new'
   get 'users', to: 'users#index'
   # ścieżki dla użytkowników
   resources :users, only: [:new, :create]
