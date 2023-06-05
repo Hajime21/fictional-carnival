@@ -11,3 +11,4 @@ class Training < ApplicationRecord
   validates :data, presence: true
   validates :data, uniqueness: { scope: :user_id, message: 'Możesz dodać tylko jeden trening danego dnia.' }
 end
+#rake db:drop && rake db:create && rake db:migrate -gdyby id sie nie resetowalo
