@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   # strona główna
   root 'public#home'
@@ -18,6 +17,11 @@ Rails.application.routes.draw do
 
   # panel administratora
   namespace :admin do
-    resources :users
+    devise_for :users, controllers: {
+      registrations: 'admin/registrations'
+    }
+    get '/', to: 'admin#index', as: 'dashboard'
+    resources :users, path: '/', controller: 'admin'
+      resources :trainings, path: '/', controller: 'admin'
   end
 end
