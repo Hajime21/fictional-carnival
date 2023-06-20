@@ -197,6 +197,8 @@ GEM
     parallel (1.22.1)
     parser (3.2.0.0)
       ast (~> 2.4.1)
+    plotly (0.0.1)
+      json
     popper_js (2.11.7)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -347,6 +349,7 @@ DEPENDENCIES
   hotwire-livereload (~> 1.2)
   importmap-rails
   jbuilder
+  plotly
   puma (~> 5.0)
   rails (~> 7.0)
   rails_admin

@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pompeczka - Aplikacja do logowania treningów</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><%= link_to 'Strona główna', root_path %></li>
-          <li><%= link_to 'Użytkownicy', users_path %></li>
-          <li><%= link_to 'Treningi', trainings_path %></li>
-          <li><%= link_to 'Panel Administratora', admin_users_path %></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-     <p class="notice"><%= notice %></p> 
-     <p class="alert"><%= alert %></p> 
-      <%= yield %>
-    </main>
-    <footer>
-      &copy; <%= Time.now.year %> Pompeczka - Aplikacja do logowania treningów
-    </footer>
-  </body>
+<head>
+  <title>Pompeczka - Aplikacja do logowania treningów</title>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'rails-ujs' %>
+  <%= javascript_include_tag 'https://cdn.plot.ly/plotly-latest.min.js' %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .notice {
+      background-color: #dff0d8;
+      padding: 10px;
+    }
+
+    .alert {
+      background-color: #f2dede;
+      padding: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to 'Strona główna', root_path %></li>
+        <li><%= link_to 'Historia treningów', trainings_path %></li>
+        <li><%= link_to 'Ranking', ranking_path %></li>
+        <li><%= link_to 'Panel Administratora', admin_users_path %></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </main>
+  <footer>
+    &copy; <%= Time.now.year %> Pompeczka - Aplikacja do logowania treningów
+  </footer>
+</body>
 </html>

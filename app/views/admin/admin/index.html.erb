@@ -3,7 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Pseudonim</th>
+      <th>Wiek</th>
       <th>Email</th>
       <th>Admin</th>
       <th colspan="2"></th>
@@ -13,11 +16,14 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.imie %></td>
+        <td><%= user.nazwisko %></td>
+        <td><%= user.pseudonim %></td>
+        <td><%= user.wiek %></td>
         <td><%= user.email %></td>
         <td><%= user.admin? ? 'Yes' : 'No' %></td>
-        <td><%= link_to 'Show', admin_user_path(user) %></td>
         <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
-        <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Treningi', admin_trainings_path(user) %></td>
+        <td><%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,46 @@
+<!-- Widok training_history.html.erb -->
+
+<div>
+  <h1>Historia treningów</h1>
+  <div id="trainingChart" style="width: 400px; height: 200px;"></div>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var dates = <%= raw @dates.to_json %>; // Przekazanie danych do JavaScript
+    var counts = <%= raw @counts.to_json %>; // Przekazanie danych do JavaScript
+
+    var trace = {
+      x: dates,
+      y: counts,
+      mode: 'lines+markers',
+      type: 'scatter',
+      line: {
+        color: 'rgb(75, 192, 192)',
+        width: 1
+      },
+      marker: { // Dodaj atrybut marker dla konfiguracji kształtu i rozmiaru kropek
+        size: 8, // Zwiększ rozmiar kropek
+        color: 'rgb(75, 192, 192)' // Opcjonalnie, można dostosować kolor kropek
+      }
+    };
+
+    var data = [trace];
+
+    var layout = {
+     // Dodatkowe opcje konfiguracyjne wykresu
+      width: 800, // Zwiększ szerokość wykresu
+      height: 400, // Zwiększ wysokość wykresu
+      margin: {
+        l: 50,
+        r: 50,
+        b: 50,
+        t: 50,
+        pad: 4
+      }
+    };
+
+    Plotly.newPlot('trainingChart', data, layout);
+  });
+</script>

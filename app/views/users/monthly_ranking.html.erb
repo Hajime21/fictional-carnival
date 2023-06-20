@@ -1,0 +1,9 @@
+<!-- monthly_ranking.html.erb -->
+
+<h1>Ranking użytkowników z największą liczbą dodanych treningów w miesiącu</h1>
+
+<ol>
+  <% @users.each do |user| %>
+    <li><%= user.imie %> <%= user.nazwisko %> - <%= user.trainings.count %> treningów</li>
+  <% end %>
+</ol>

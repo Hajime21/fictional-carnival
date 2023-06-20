@@ -1,0 +1,6 @@
+<h1>Treningi użytkownika: <%= @user.name %></h1>
+
+<% @trainings.each do |training| %>
+  <p><%= training.name %></p>
+  <!-- Add more information about the training -->
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Ranking użytkowników z największą liczbą pompek w tygodniu</h1>
+
+<ol>
+  <% @users.each do |user| %>
+     <li><%= user.imie %> <%= user.nazwisko %>  - <%= user.total_pompek %> pompek</li>
+  <% end %>
+</ol>
