@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   # strona główna
   root 'public#home'
   get 'trainings', to: 'trainings#index'
-  get 'trainingsnew', to: 'trainings#new'
-  get 'trainingsedit', to: 'trainings#edit'
+  get 'trainings/new', to: 'trainings#new'
+  get 'trainings/edit', to: 'trainings#edit'
   get 'users', to: 'users#index'
   delete '/users/:id', to: 'users#destroy', as: 'destroy_user'
   # ścieżki dla użytkowników
   resources :users, only: [:new, :create, :delete]
-  get '/training_history', to: 'users#training_history', as: 'training_history'
+  get '/trainings_history', to: 'users#training_history', as: 'training_history'
   # ścieżki dla treningów
   resources :trainings, only: [:new, :create, :delete]
 
